@@ -4,5 +4,5 @@
 
 ## References
 
-- [Terramate](!https://terramate.io/)
-- [Terramate Example](!https://github.com/terramate-io/terramate-example-code-generation)
+- [Terramate](https://terramate.io/)
+- [Terramate Example](https://github.com/terramate-io/terramate-example-code-generation)
