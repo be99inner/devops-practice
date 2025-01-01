@@ -36,6 +36,7 @@ module "eks_bottlerocket" {
     eks-pod-identity-agent = {}
     kube-proxy             = {}
     vpc-cni                = {}
+    aws-ebs-csi-driver     = {}
   }
 
   vpc_id     = local.vpc_id
