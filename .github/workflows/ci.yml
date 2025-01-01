@@ -1,53 +1,53 @@
-# name: CI Pipeline
-#
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-#
-# jobs:
-#   tests:
-#     runs-on: "ubuntu-20.04"
-#
-#     name: Run Tests
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 0
-#
-#       - name: Set up Terramate
-#         uses: terramate-io/terramate-action@v2
-#
-#       - name: Set up Terraform
-#         uses: hashicorp/setup-terraform@v1
-#         with:
-#           terraform_version: 1.8.0
-#           terraform_wrapper: false
-#
-#       - name: Check Terraform Formatting
-#         run: terraform fmt -recursive -check -no-color
-#
-#       - name: Check Terramate Formatting
-#         run: terramate fmt --check
-#
-#       - name: List all Stacks
-#         run: terramate list
-#
-#       - name: Initialize Stacks
-#         run: terramate run -- terraform init
-#
-#       - name: Validate Stacks
-#         run: terramate run -- terraform validate
-#
-#   done:
-#     name: Static Analysis
-#     runs-on: ubuntu-20.04
-#     needs: tests
-#
-#     steps:
-#       - name: Done
-#         run: "true"
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: "ubuntu-20.04"
+
+    name: Run Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Terramate
+        uses: terramate-io/terramate-action@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.8.0
+          terraform_wrapper: false
+
+      - name: Check Terraform Formatting
+        run: terraform fmt -recursive -check -no-color
+
+      - name: Check Terramate Formatting
+        run: terramate fmt --check
+
+      - name: List all Stacks
+        run: terramate list
+
+      - name: Initialize Stacks
+        run: terramate run -- terraform init
+
+      - name: Validate Stacks
+        run: terramate run -- terraform validate
+
+  done:
+    name: Static Analysis
+    runs-on: ubuntu-20.04
+    needs: tests
+
+    steps:
+      - name: Done
+        run: "true"
