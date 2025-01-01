@@ -14,8 +14,6 @@ locals {
   }
 }
 
-data "aws_caller_identity" "current" {}
-
 # EKS
 module "eks_bottlerocket" {
   # **NOTE**: 
@@ -50,7 +48,7 @@ module "eks_bottlerocket" {
       instance_types = ["m6i.large"]
 
       min_size = 1
-      max_size = 1
+      max_size = 5
       # This value is ignored after the initial creation
       # https://github.com/bryantbiggs/eks-desired-size-hack
       desired_size = 1
