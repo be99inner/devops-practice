@@ -129,19 +129,19 @@ module "eks_bottlerocket" {
         }
       }
     }
-    # Terraform Access
-    terraform = {
-      principal_arn = "arn:aws:iam::911167885658:user/terraform"
-      policy_associations = {
-        example = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
-          access_scope = {
-            namespaces = []
-            type       = "cluster"
-          }
-        }
-      }
-    }
+    # # Terraform Access
+    # terraform = {
+    #   principal_arn = "arn:aws:iam::911167885658:user/terraform"
+    #   policy_associations = {
+    #     example = {
+    #       policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+    #       access_scope = {
+    #         namespaces = ["*"]
+    #         type       = "cluster"
+    #       }
+    #     }
+    #   }
+    # }
   }
 
   tags = local.tags
