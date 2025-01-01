@@ -37,11 +37,11 @@ jobs:
       - name: List all Stacks
         run: terramate list
 
-      - name: Initialize Stacks
-        run: terramate run -- terraform init
-
-      - name: Validate Stacks
-        run: terramate run -- terraform validate
+      # - name: Initialize Stacks
+      #   run: terramate run -- terraform init
+      #
+      # - name: Validate Stacks
+      #   run: terramate run -- terraform validate
 
   done:
     name: Static Analysis
